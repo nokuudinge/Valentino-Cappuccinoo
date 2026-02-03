@@ -4,7 +4,8 @@ A beautiful, interactive website with a special Valentine's Day message.
 
 ## ✨ Features
 
-- Modern glassmorphism design with yellow theme
+- Romantic red and pink color theme
+- Modern glassmorphism design
 - Animated gradient backgrounds
 - Love meter animation
 - Floating flowers (peonies, lilies, roses)
@@ -17,4 +18,4 @@ A beautiful, interactive website with a special Valentine's Day message.
 
 Deployed with GitHub Pages
 
-## 💛 Built with love
+## ❤️ Built with love

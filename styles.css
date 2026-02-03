@@ -5,20 +5,20 @@
 }
 
 :root {
-    --primary-yellow: #FFD700;
-    --soft-yellow: #FFF8DC;
-    --bright-yellow: #FFEB3B;
-    --primary-pink: #FF6B9D;
+    --primary-red: #FF1744;
+    --soft-pink: #FFE5EC;
+    --bright-pink: #FF69B4;
+    --deep-red: #C2185B;
     --light-pink: #FFB6D9;
-    --dark-pink: #FF1493;
-    --cream: #FFFEF0;
+    --rose-red: #E91E63;
+    --cream: #FFF5F7;
     --white: #FFFFFF;
     --shadow: rgba(0, 0, 0, 0.1);
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #FFF9E6 0%, #FFE68F 25%, #FFD700 50%, #FFC857 75%, #FFB84D 100%);
+    background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E9 25%, #FFB6C1 50%, #FF69B4 75%, #FF1744 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -55,7 +55,7 @@ body {
 .orb-1 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, #FFEB3B, #FFD700, transparent);
+    background: radial-gradient(circle, #FF69B4, #FF1744, transparent);
     top: -100px;
     left: -100px;
     animation-delay: 0s;
@@ -64,7 +64,7 @@ body {
 .orb-2 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, #FFC857, #FFB84D, transparent);
+    background: radial-gradient(circle, #E91E63, #C2185B, transparent);
     bottom: -150px;
     right: -150px;
     animation-delay: 7s;
@@ -73,7 +73,7 @@ body {
 .orb-3 {
     width: 350px;
     height: 350px;
-    background: radial-gradient(circle, #FFF9E6, #FFE68F, transparent);
+    background: radial-gradient(circle, #FFB6C1, #FFE4E9, transparent);
     top: 50%;
     left: 50%;
     animation-delay: 14s;
@@ -157,10 +157,10 @@ body {
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 3px solid rgba(255, 215, 0, 0.4);
-    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3),
+    border: 3px solid rgba(255, 105, 180, 0.5);
+    box-shadow: 0 20px 60px rgba(255, 23, 68, 0.3),
                 inset 0 1px 0 rgba(255, 255, 255, 0.6),
-                0 0 40px rgba(255, 235, 59, 0.2);
+                0 0 40px rgba(233, 30, 99, 0.2);
 }
 
 @keyframes slideInScale {
@@ -261,17 +261,17 @@ body {
 }
 
 .surprise-title {
-    color: #8B4513;
-    text-shadow: 0 0 20px rgba(255, 235, 59, 0.8),
-                 0 0 40px rgba(255, 215, 0, 0.5),
-                 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #FFFFFF;
+    text-shadow: 0 0 20px rgba(255, 23, 68, 0.8),
+                 0 0 40px rgba(233, 30, 99, 0.5),
+                 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .valentine-title {
-    color: #8B4513;
-    text-shadow: 0 0 20px rgba(255, 235, 59, 0.8),
-                 0 0 40px rgba(255, 215, 0, 0.5),
-                 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #FFFFFF;
+    text-shadow: 0 0 20px rgba(255, 23, 68, 0.8),
+                 0 0 40px rgba(233, 30, 99, 0.5),
+                 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .script-font {
@@ -291,11 +291,11 @@ body {
 
 .message {
     font-size: 1.1em;
-    color: #4A4A4A;
+    color: #FFFFFF;
     line-height: 1.6;
     margin: 10px 0;
     font-weight: 400;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .signature {
@@ -411,7 +411,7 @@ body {
 .love-meter-fill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #FFD700, #FFEB3B, #FFA500);
+    background: linear-gradient(90deg, #FF1744, #E91E63, #FF69B4);
     border-radius: 15px;
     animation: fill-meter 3s ease-out forwards;
     position: relative;
@@ -442,18 +442,18 @@ body {
 }
 
 .love-meter-text {
-    color: #4A4A4A;
+    color: #FFFFFF;
     margin-top: 15px;
     font-size: 1.2em;
     font-weight: 600;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .percentage {
-    color: #FF8C00;
+    color: #FF1744;
     font-weight: 800;
     font-size: 1.3em;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    text-shadow: 0 0 10px rgba(233, 30, 99, 0.6);
 }
 
 /* Reasons Preview */
@@ -466,11 +466,11 @@ body {
 }
 
 .reasons-title {
-    color: #8B4513;
+    color: #FFFFFF;
     font-size: 1.1em;
     font-weight: 700;
     margin-bottom: 15px;
-    text-shadow: 0 1px 2px rgba(255, 235, 59, 0.8);
+    text-shadow: 0 2px 4px rgba(255, 23, 68, 0.8);
 }
 
 .reasons-list {
@@ -480,16 +480,16 @@ body {
 }
 
 .reason-item {
-    color: #4A4A4A;
+    color: #FFFFFF;
     font-size: 1.1em;
     padding: 12px 20px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
-    border-left: 4px solid #FFD700;
+    border-left: 4px solid #FF1744;
     text-align: left;
     animation: slideInLeft 0.6s ease-out forwards;
     opacity: 0;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .reason-item:nth-child(1) { animation-delay: 0.2s; }
@@ -537,10 +537,10 @@ body {
 }
 
 .surprise-yes-btn {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    color: #8B4513;
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
-    border: 2px solid rgba(255, 235, 59, 0.8);
+    background: linear-gradient(135deg, #FF1744 0%, #E91E63 100%);
+    color: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(255, 23, 68, 0.6);
+    border: 2px solid rgba(255, 105, 180, 0.8);
     font-weight: 800;
 }
 
@@ -579,10 +579,10 @@ body {
 }
 
 .yes-btn {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    color: #8B4513;
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
-    border: 2px solid rgba(255, 235, 59, 0.8);
+    background: linear-gradient(135deg, #FF1744 0%, #E91E63 100%);
+    color: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(255, 23, 68, 0.6);
+    border: 2px solid rgba(255, 105, 180, 0.8);
     font-weight: 800;
 }
 
@@ -601,11 +601,11 @@ body {
 
 @keyframes glow-btn-anim {
     0%, 100% {
-        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
+        box-shadow: 0 10px 30px rgba(255, 23, 68, 0.6);
     }
     50% {
-        box-shadow: 0 15px 50px rgba(255, 235, 59, 0.9),
-                    0 0 30px rgba(255, 215, 0, 0.7);
+        box-shadow: 0 15px 50px rgba(233, 30, 99, 0.9),
+                    0 0 30px rgba(255, 105, 180, 0.7);
     }
 }
 
@@ -627,8 +627,8 @@ body {
     font-size: 1.2em;
     font-weight: 600;
     min-height: 40px;
-    color: #8B4513;
-    text-shadow: 0 1px 2px rgba(255, 235, 59, 0.8);
+    color: #FFFFFF;
+    text-shadow: 0 2px 4px rgba(255, 23, 68, 0.8);
     animation: fadeInUp 0.5s ease-out;
 }
 
@@ -758,10 +758,10 @@ canvas {
 
 /* Celebration Page Styles */
 .celebration-title {
-    color: #FFD700;
+    color: #FFFFFF;
     font-size: 3em;
-    text-shadow: 0 0 30px rgba(255, 215, 0, 0.8),
-                 0 0 60px rgba(255, 215, 0, 0.4);
+    text-shadow: 0 0 30px rgba(255, 23, 68, 0.8),
+                 0 0 60px rgba(233, 30, 99, 0.6);
     animation: celebration-pulse 1.5s ease-in-out infinite;
 }
 
@@ -781,10 +781,10 @@ canvas {
 
 .celebration-big-text {
     font-size: 1.5em;
-    color: #4A4A4A;
+    color: #FFFFFF;
     font-weight: 600;
     margin: 20px 0;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 1s ease-out;
 }
 
@@ -798,7 +798,7 @@ canvas {
 .heart-big {
     font-size: 4em;
     animation: heart-bounce 1s ease-in-out infinite;
-    filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.8));
+    filter: drop-shadow(0 0 20px rgba(255, 23, 68, 0.8));
 }
 
 .heart-big:nth-child(1) { animation-delay: 0s; }
@@ -819,8 +819,8 @@ canvas {
     border-radius: 20px;
     padding: 30px;
     margin: 30px 0;
-    border: 2px solid rgba(255, 215, 0, 0.4);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 105, 180, 0.5);
+    box-shadow: 0 10px 40px rgba(255, 23, 68, 0.3);
 }
 
 .dedication-header {
@@ -837,10 +837,10 @@ canvas {
 }
 
 .dedication-title {
-    color: #FFD700;
+    color: #FFFFFF;
     font-size: 1.8em;
     font-weight: 700;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
 }
 
 .song-info {
@@ -849,19 +849,19 @@ canvas {
 
 .song-name {
     font-size: 2.5em;
-    color: #8B4513;
+    color: #FFFFFF;
     font-weight: 800;
     font-family: 'Dancing Script', cursive;
     margin: 10px 0;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
 }
 
 .artist-name {
     font-size: 1.3em;
-    color: #8B4513;
+    color: #FFE4E9;
     font-weight: 600;
     margin: 5px 0;
-    text-shadow: 0 1px 2px rgba(255, 235, 59, 0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .dedication-message {
@@ -872,44 +872,44 @@ canvas {
 
 .dedication-text {
     font-size: 1.2em;
-    color: #4A4A4A;
+    color: #FFFFFF;
     line-height: 1.8;
     margin: 15px 0;
     font-style: italic;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .dedication-signature {
     font-size: 1.1em;
-    color: #8B4513;
+    color: #FFFFFF;
     margin-top: 20px;
     font-weight: 700;
-    text-shadow: 0 1px 2px rgba(255, 235, 59, 0.8);
+    text-shadow: 0 0 15px rgba(255, 23, 68, 0.8);
 }
 
 .final-message {
     margin-top: 30px;
     padding: 20px;
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 235, 59, 0.2));
+    background: linear-gradient(135deg, rgba(255, 23, 68, 0.2), rgba(233, 30, 99, 0.2));
     border-radius: 15px;
-    border: 2px solid rgba(255, 215, 0, 0.4);
+    border: 2px solid rgba(255, 105, 180, 0.5);
 }
 
 .final-text {
     font-size: 1.8em;
-    color: #8B4513;
+    color: #FFFFFF;
     font-weight: 700;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
     animation: glow-text 2s ease-in-out infinite;
 }
 
 @keyframes glow-text {
     0%, 100% {
-        text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
     }
     50% {
-        text-shadow: 0 0 40px rgba(255, 235, 59, 0.9),
-                     0 0 60px rgba(255, 215, 0, 0.6);
+        text-shadow: 0 0 40px rgba(233, 30, 99, 0.9),
+                     0 0 60px rgba(255, 105, 180, 0.8);
     }
 }
 

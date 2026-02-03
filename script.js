@@ -28,7 +28,7 @@ class Confetti {
                 size: Math.random() * 8 + 3,
                 rotation: Math.random() * Math.PI * 2,
                 rotationSpeed: (Math.random() - 0.5) * 0.15,
-                color: ['#FFD700', '#FFEB3B', '#FFA500', '#FFB84D', '#FFC857', '#FFFACD'][Math.floor(Math.random() * 6)],
+                color: ['#FF1744', '#E91E63', '#FF69B4', '#FFB6D9', '#FF6B9D', '#C2185B'][Math.floor(Math.random() * 6)],
                 shape: shapes[Math.floor(Math.random() * shapes.length)],
                 alpha: 1
             });
@@ -399,7 +399,7 @@ function createFloatingHearts() {
 
 // Celebration effect
 function celebrate() {
-    const emojis = ['🎉', '🌸', '🎊', '🌺', '✨', '🌹', '💫', '💐', '🌼'];
+    const emojis = ['🎉', '🌸', '🎊', '🌺', '✨', '🌹', '💫', '💐', '💕', '💖'];
 
     for (let i = 0; i < 20; i++) {
         setTimeout(() => {
@@ -412,7 +412,7 @@ function celebrate() {
             celebration.style.pointerEvents = 'none';
             celebration.style.animation = 'zoomIn 0.6s ease-out';
             celebration.style.zIndex = '9999';
-            celebration.style.textShadow = '0 0 10px rgba(255, 215, 0, 0.8)';
+            celebration.style.textShadow = '0 0 10px rgba(255, 23, 68, 0.8)';
 
             document.body.appendChild(celebration);
 
