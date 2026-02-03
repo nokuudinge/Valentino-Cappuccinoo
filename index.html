@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Have a Surprise... 💝</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-background">
+        <div class="floating-hearts-bg" id="floatingHeartsBg"></div>
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="https://youtu.be/gEWCJc1atvc" type="audio/mpeg">
+    </audio>
+
+    <!-- Celebration Song - She's Mine by J. Cole -->
+    <audio id="celebrationSong">
+        <source src="https://www.youtube.com/embed/Kx6u3UBb0zQ" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Toggle Button -->
+    <button class="music-toggle" id="musicToggle" onclick="toggleMusic()">
+        <span class="music-icon">🎵</span>
+    </button>
+
+    <!-- Surprise Page -->
+    <div class="container" id="surprisePage">
+        <div class="content glass surprise-content">
+            <div class="sparkles">
+                <span class="sparkle">✨</span>
+                <span class="sparkle">✨</span>
+                <span class="sparkle">✨</span>
+            </div>
+
+            <h1 class="title surprise-title">
+                <span class="title-word">Hey</span>
+                <span class="title-word">Nyasha</span>
+                <span class="heart-beat">💛</span>
+            </h1>
+
+            <div class="surprise-emoji">
+                <span class="surprise-emoji-item glow">🎁</span>
+            </div>
+
+            <div class="message-box surprise-message-box">
+                <p class="message fade-in-up">I've been thinking about something really special, and I can't wait to share it with you...</p>
+                <p class="message fade-in-up delay-1">Are you ready for the surprise, darling? 💫</p>
+            </div>
+
+            <div class="button-container">
+                <button class="btn surprise-yes-btn pulse-btn" onclick="revealSurprise()">
+                    <span>Yes, Show Me! 🎉</span>
+                </button>
+                <button class="btn surprise-no-btn" onclick="playMusic()">
+                    <span>Let Me Prepare First 😊</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Valentine Page -->
+    <div class="container hidden" id="valentinePage">
+        <div class="content glass valentine-content">
+            <div class="rose-petals" id="rosePetals"></div>
+
+            <h1 class="title valentine-title script-font">
+                Will You Be My Valentine?
+            </h1>
+
+            <div class="love-meter-container">
+                <div class="love-meter">
+                    <div class="love-meter-fill" id="loveMeterFill"></div>
+                </div>
+                <p class="love-meter-text">My Love for You: <span class="percentage">100%</span></p>
+            </div>
+
+            <div class="message-box valentine-message-box">
+                <p class="message">Nyasha, you light up my world in ways I never imagined possible.</p>
+                <p class="message">Every moment with you feels like magic, and I want to make this Valentine's Day unforgettable...</p>
+                <p class="message signature">- Your Forever Valentine 💕</p>
+            </div>
+
+            <div class="emoji-container">
+                <span class="emoji rotate-emoji">🌹</span>
+                <span class="emoji scale-emoji">💖</span>
+                <span class="emoji rotate-emoji">🎁</span>
+            </div>
+
+            <div class="reasons-preview">
+                <p class="reasons-title">Just a few reasons why...</p>
+                <div class="reasons-list">
+                    <div class="reason-item">Your smile brightens my darkest days ✨</div>
+                    <div class="reason-item">Your laugh is my favorite sound 🎶</div>
+                    <div class="reason-item">You make everything better 🌟</div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button class="btn yes-btn glow-btn" onclick="handleYes()">
+                    <span>YES! 💕</span>
+                    <div class="sparkle-effect"></div>
+                </button>
+                <button class="btn no-btn" id="noBtn" onmouseover="moveButton()" onclick="handleNo()">
+                    <span>No</span>
+                </button>
+            </div>
+
+            <div class="response-message" id="responseMessage"></div>
+        </div>
+    </div>
+
+    <canvas id="confetti"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
