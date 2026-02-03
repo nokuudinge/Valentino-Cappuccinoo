@@ -110,14 +110,16 @@
             </div>
 
             <div class="button-container">
-                <button class="btn yes-btn glow-btn" onclick="handleYes()">
-                    <span>YES! 💕</span>
+                <button class="btn yes-btn glow-btn" id="yesBtn" onclick="handleYes()">
+                    <span id="yesBtnText">YES! 💕</span>
                     <div class="sparkle-effect"></div>
                 </button>
-                <button class="btn no-btn" id="noBtn" onmouseover="moveButton()" onclick="handleNo()">
-                    <span>No</span>
+                <button class="btn no-btn" id="noBtn" onmouseover="moveButton()" onmouseenter="moveButton()" ontouchstart="moveButton()" onclick="handleNo()">
+                    <span id="noBtnText">No</span>
                 </button>
             </div>
+
+            <div class="hint-message" id="hintMessage"></div>
 
             <div class="response-message" id="responseMessage"></div>
         </div>

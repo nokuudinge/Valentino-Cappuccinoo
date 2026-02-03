@@ -190,6 +190,7 @@ function createRosePetals() {
 
 // Reveal surprise - transition to Valentine's page
 function revealSurprise() {
+    // Start playing background music (Elaine - You're the One)
     playMusic();
 
     const surprisePage = document.getElementById('surprisePage');
@@ -213,8 +214,22 @@ function revealSurprise() {
                 loveMeterFill.style.width = '100%';
             }
         }, 500);
+
+        // Add a little welcome message
+        setTimeout(() => {
+            const hintMessage = document.getElementById('hintMessage');
+            hintMessage.innerHTML = '💝 Hover over the buttons to see what happens... 😊';
+            setTimeout(() => {
+                hintMessage.style.opacity = '0';
+                hintMessage.style.transition = 'opacity 1s ease-out';
+            }, 4000);
+        }, 2000);
     }, 600);
 }
+
+// Track button interaction attempts
+let noButtonAttempts = 0;
+let yesButtonScale = 1;
 
 // Handle Yes button
 function handleYes() {
@@ -233,6 +248,9 @@ function handleYes() {
         </div>
     `;
 
+    // Hide hint message
+    document.getElementById('hintMessage').style.display = 'none';
+
     // Disable buttons
     const yesBtn = document.querySelector('.yes-btn');
     const noBtn = document.getElementById('noBtn');
@@ -242,6 +260,7 @@ function handleYes() {
     noBtn.style.opacity = '0.6';
     noBtn.style.cursor = 'not-allowed';
     yesBtn.style.cursor = 'not-allowed';
+    noBtn.style.display = 'none';
 
     // Pause background music and play celebration song
     bgMusic.pause();
@@ -267,32 +286,100 @@ function handleYes() {
     }, 2000);
 }
 
-// Handle No button - it runs away more dramatically
+// Handle No button - it runs away more dramatically and YES button grows
 function moveButton() {
     const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const hintMessage = document.getElementById('hintMessage');
     const container = noBtn.parentElement;
+
+    noButtonAttempts++;
+
+    // Funny messages that get more desperate
+    const funnyMessages = [
+        { no: 'No', hint: '', yes: 'YES! 💕' },
+        { no: 'No?', hint: '🤔 Really though?', yes: 'YES! 💕💕' },
+        { no: 'Are you sure?', hint: '😢 The button is running away!', yes: 'YES PLEASE! 💕💕' },
+        { no: 'Really??', hint: '😭 Come on, you know you want to!', yes: 'YES! I NEED THIS! 💕💕💕' },
+        { no: 'Think again!', hint: '🥺 Please? The Yes button is getting lonely...', yes: 'ABSOLUTELY YES! 💕💕💕💕' },
+        { no: 'Nope!', hint: '😱 Don\'t make me beg! (I will)...', yes: 'YES YES YES! 💕💕💕💕💕' },
+        { no: 'Not happening', hint: '🙏 I\'m literally begging you!', yes: 'OF COURSE YES! 💕💕💕💕💕💕' },
+        { no: '???', hint: '😍 You know the answer is yes!', yes: 'YESSSS! 💕💕💕💕💕💕💕' },
+        { no: '🏃💨', hint: '💖 Just click the big button already!', yes: 'YES! ALWAYS YES! 💕💕💕💕💕💕💕💕' },
+        { no: 'Bye!', hint: '✨ The universe wants you to say yes!', yes: 'YES TO EVERYTHING! 💕💕💕💕💕💕💕💕💕' }
+    ];
+
+    const messageIndex = Math.min(noButtonAttempts, funnyMessages.length - 1);
+    const currentMessage = funnyMessages[messageIndex];
+
+    // Update button texts
+    document.getElementById('noBtnText').textContent = currentMessage.no;
+    document.getElementById('yesBtnText').textContent = currentMessage.yes;
+
+    // Show hint message
+    if (currentMessage.hint) {
+        hintMessage.textContent = currentMessage.hint;
+        hintMessage.style.animation = 'none';
+        setTimeout(() => {
+            hintMessage.style.animation = 'bounce-word 0.6s ease-in-out';
+        }, 10);
+    }
+
+    // Make YES button bigger
+    yesButtonScale += 0.08;
+    yesBtn.style.transform = `scale(${yesButtonScale})`;
+    yesBtn.style.transition = 'all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+
+    // Make NO button smaller and run away
+    const noBtnScale = Math.max(0.2, 1 - (noButtonAttempts * 0.12));
+
+    // Calculate random position that's far from the YES button
     const containerRect = container.getBoundingClientRect();
+    const maxX = Math.min(400, window.innerWidth - containerRect.left - 150);
+    const maxY = Math.min(300, window.innerHeight - containerRect.top - 100);
 
-    // Make it harder to click each time
-    const scale = Math.max(0.3, parseFloat(noBtn.style.transform?.match(/scale\(([^)]+)\)/)?.[1] || 1) - 0.1);
+    const randomX = (Math.random() - 0.5) * maxX * 1.5;
+    const randomY = (Math.random() - 0.5) * maxY * 1.5;
 
-    const maxX = window.innerWidth - containerRect.left - 200;
-    const maxY = window.innerHeight - containerRect.top - 100;
-
-    const randomX = (Math.random() - 0.5) * Math.min(maxX, 400);
-    const randomY = (Math.random() - 0.5) * Math.min(maxY, 400);
-
-    noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(${scale})`;
+    noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(${noBtnScale})`;
     noBtn.style.transition = 'all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
 
-    // Change button text to be funny
-    const messages = ['No', 'Are you sure?', 'Really?', 'Think again!', 'Please? 🥺', 'Come on!'];
-    noBtn.querySelector('span').textContent = messages[Math.floor(Math.random() * messages.length)];
+    // After 5 attempts, make NO button start spinning
+    if (noButtonAttempts >= 5) {
+        noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(${noBtnScale}) rotate(${noButtonAttempts * 45}deg)`;
+    }
+
+    // After 8 attempts, make it super tiny and almost invisible
+    if (noButtonAttempts >= 8) {
+        noBtn.style.opacity = Math.max(0.1, 1 - (noButtonAttempts - 8) * 0.15);
+    }
+
+    // After 10 attempts, just hide it completely and make YES button huge
+    if (noButtonAttempts >= 10) {
+        noBtn.style.display = 'none';
+        hintMessage.innerHTML = '🎉 Fine! I guess you HAVE to say yes now! 😄💕';
+        yesBtn.style.transform = `scale(${yesButtonScale + 0.5})`;
+    }
+
+    // Add a little shake to the YES button to draw attention
+    yesBtn.style.animation = 'none';
+    setTimeout(() => {
+        yesBtn.style.animation = 'glow-btn-anim 0.5s ease-in-out';
+    }, 10);
 }
 
 function handleNo() {
     // Just in case they manage to click it
-    alert('Oops! The button ran away! Maybe try the YES button instead? 😉');
+    const responses = [
+        'Nope! That button is too fast for you! 😄',
+        'Nice try! But the YES button is waiting... 💕',
+        'Oops! It ran away again! 🏃💨',
+        'So close! Maybe try YES instead? 😉',
+        'The button said "not today!" 😂'
+    ];
+
+    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+    document.getElementById('hintMessage').textContent = randomResponse;
 }
 
 // Create floating hearts
