@@ -28,7 +28,7 @@ class Confetti {
                 size: Math.random() * 8 + 3,
                 rotation: Math.random() * Math.PI * 2,
                 rotationSpeed: (Math.random() - 0.5) * 0.15,
-                color: ['#FFD700', '#FF6B9D', '#FFB6D9', '#FFA500', '#FF69B4', '#FF1493'][Math.floor(Math.random() * 6)],
+                color: ['#FFD700', '#FFEB3B', '#FFA500', '#FFB84D', '#FFC857', '#FFFACD'][Math.floor(Math.random() * 6)],
                 shape: shapes[Math.floor(Math.random() * shapes.length)],
                 alpha: 1
             });
@@ -145,34 +145,35 @@ function playMusic() {
     isMusicPlaying = true;
 }
 
-// Create floating hearts in background
+// Create floating flowers in background
 function createBackgroundHearts() {
     const container = document.getElementById('floatingHeartsBg');
-    const heartEmojis = ['💕', '💖', '💗', '💝', '💘', '❤️'];
+    const flowerEmojis = ['🌸', '🌺', '🌹', '🌼', '🌻', '💐'];
 
     setInterval(() => {
-        const heart = document.createElement('div');
-        heart.className = 'hearts';
-        heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-        heart.style.left = Math.random() * window.innerWidth + 'px';
-        heart.style.bottom = '-50px';
-        heart.style.fontSize = (Math.random() * 1.5 + 1) + 'em';
-        heart.style.opacity = Math.random() * 0.3 + 0.2;
-        container.appendChild(heart);
+        const flower = document.createElement('div');
+        flower.className = 'hearts';
+        flower.innerHTML = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+        flower.style.left = Math.random() * window.innerWidth + 'px';
+        flower.style.bottom = '-50px';
+        flower.style.fontSize = (Math.random() * 1.5 + 1) + 'em';
+        flower.style.opacity = Math.random() * 0.3 + 0.2;
+        container.appendChild(flower);
 
-        setTimeout(() => heart.remove(), 4000);
+        setTimeout(() => flower.remove(), 4000);
     }, 3000);
 }
 
-// Create rose petals
+// Create flower petals (peonies, lilies, roses)
 function createRosePetals() {
     const container = document.getElementById('rosePetals');
     const petalCount = 20;
+    const flowers = ['🌸', '🌺', '🌹', '💐'];
 
     for (let i = 0; i < petalCount; i++) {
         setTimeout(() => {
             const petal = document.createElement('div');
-            petal.innerHTML = '🌹';
+            petal.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
             petal.style.position = 'absolute';
             petal.style.left = Math.random() * 100 + '%';
             petal.style.top = -50 + 'px';
@@ -375,30 +376,30 @@ function handleNo() {
     document.getElementById('hintMessage').textContent = randomResponse;
 }
 
-// Create floating hearts
+// Create floating hearts and flowers
 function createFloatingHearts() {
-    const heartEmojis = ['💕', '💖', '💗', '💝', '💘', '❤️', '💓', '💞'];
-    const heartCount = 25;
+    const emojis = ['💕', '💖', '🌸', '🌺', '🌹', '💐', '💝', '🌼'];
+    const count = 25;
 
-    for (let i = 0; i < heartCount; i++) {
+    for (let i = 0; i < count; i++) {
         setTimeout(() => {
-            const heart = document.createElement('div');
-            heart.className = 'hearts';
-            heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            heart.style.bottom = '0px';
-            heart.style.fontSize = (Math.random() * 2 + 1.5) + 'em';
-            heart.style.filter = `hue-rotate(${Math.random() * 60}deg)`;
-            document.body.appendChild(heart);
+            const element = document.createElement('div');
+            element.className = 'hearts';
+            element.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            element.style.left = Math.random() * window.innerWidth + 'px';
+            element.style.bottom = '0px';
+            element.style.fontSize = (Math.random() * 2 + 1.5) + 'em';
+            element.style.filter = `hue-rotate(${Math.random() * 30}deg)`;
+            document.body.appendChild(element);
 
-            setTimeout(() => heart.remove(), 4000);
+            setTimeout(() => element.remove(), 4000);
         }, i * 80);
     }
 }
 
 // Celebration effect
 function celebrate() {
-    const emojis = ['🎉', '💕', '🎊', '💖', '✨', '🌟', '💫', '🎆', '🎇'];
+    const emojis = ['🎉', '🌸', '🎊', '🌺', '✨', '🌹', '💫', '💐', '🌼'];
 
     for (let i = 0; i < 20; i++) {
         setTimeout(() => {
@@ -411,7 +412,7 @@ function celebrate() {
             celebration.style.pointerEvents = 'none';
             celebration.style.animation = 'zoomIn 0.6s ease-out';
             celebration.style.zIndex = '9999';
-            celebration.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.8)';
+            celebration.style.textShadow = '0 0 10px rgba(255, 215, 0, 0.8)';
 
             document.body.appendChild(celebration);
 
