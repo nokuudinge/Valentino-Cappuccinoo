@@ -233,6 +233,12 @@ let yesButtonScale = 1;
 
 // Handle Yes button
 function handleYes() {
+    // Prevent multiple clicks
+    if (hasClickedYes) {
+        return;
+    }
+    hasClickedYes = true;
+
     const responseDiv = document.getElementById('responseMessage');
     responseDiv.className = 'response-message success-message';
     responseDiv.innerHTML = `
@@ -442,37 +448,16 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Keyboard support
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        const valentinePage = document.getElementById('valentinePage');
-        if (!valentinePage.classList.contains('hidden')) {
-            const yesBtn = document.querySelector('.yes-btn');
-            if (!yesBtn.disabled) {
-                yesBtn.click();
-            }
-        } else {
-            revealSurprise();
-        }
-    }
-});
+// Keyboard support - removed auto-triggering to prevent accidental accepts
+// Users must click the buttons intentionally
 
 // Initialize background effects
 window.addEventListener('load', () => {
     createBackgroundHearts();
-
-    // Prevent accidental double-clicks
-    const yesBtn = document.querySelector('.yes-btn');
-    let hasClicked = false;
-
-    yesBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (!hasClicked) {
-            hasClicked = true;
-            handleYes();
-        }
-    });
 });
+
+// Prevent double-clicks on YES button
+let hasClickedYes = false;
 
 // Add touch support for mobile
 document.addEventListener('touchstart', function() {}, {passive: true});
